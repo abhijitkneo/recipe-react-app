@@ -1,8 +1,8 @@
 import React from 'react'
-import './header.scss';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import logo from '../../assets/logo.svg';
 import userAvatar from '../../assets/user-avatar.png';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -11,12 +11,14 @@ const Header = () => {
 				<Row>
 					<Col md={6} className='align-self-center'>
 						<figure className="m-0">
-							<img src={logo} alt="" />
+							<Link to={'/'}>
+								<img src={logo} alt="" />
+							</Link>
 						</figure>
 					</Col>
 					<Col md={6}>
-						<div className="d-flex align-items-center justify-content-end gap-3">
-							<a href="/" className='link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover'>Home</a>
+						<div className="d-flex align-items-center justify-content-end gap-3 main-menu">
+							<NavLink to={'/'} end className={({isActive}) => `link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover ${isActive ? 'active' : ''}`}>Home</NavLink>
 							<a href="/" className='link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover'>Explore</a>
 							<a href="/" className='link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover'>Help</a>
 							<Button type='button' variant=''>
