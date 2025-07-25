@@ -1,0 +1,10 @@
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin squareBox($size) {
+    width: $size;
+    height: $size;
+}

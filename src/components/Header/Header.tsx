@@ -1,0 +1,33 @@
+import React from 'react'
+import './header.scss';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import logo from '../../assets/logo.svg';
+import userAvatar from '../../assets/user-avatar.png';
+
+const Header = () => {
+	return (
+		<header className='shadow-sm py-2'>
+			<Container>
+				<Row>
+					<Col md={6} className='align-self-center'>
+						<figure className="m-0">
+							<img src={logo} alt="" />
+						</figure>
+					</Col>
+					<Col md={6}>
+						<div className="d-flex align-items-center justify-content-end gap-3">
+							<a href="/" className='link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover'>Home</a>
+							<a href="/" className='link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover'>Explore</a>
+							<a href="/" className='link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover'>Help</a>
+							<Button type='button' variant=''>
+								<img src={userAvatar} alt="" />
+							</Button>
+						</div>
+					</Col>
+				</Row>
+			</Container>
+		</header>
+	)
+}
+
+export default Header
