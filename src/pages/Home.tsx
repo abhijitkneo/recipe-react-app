@@ -32,7 +32,7 @@ const Home = () => {
 	
 
 	return (
-		<div className='home'>
+		<div className='home mb-5'>
 			<Banner />
 
 			<section className="recipeList">
