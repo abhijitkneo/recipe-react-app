@@ -21,7 +21,7 @@ const RecipeCard = ({recipe}: Props) => {
 						<GoStarFill className='text-warning' /> {recipe.rating}
 					</span>
 					<p className="fw-semibold m-0 text-primary">{recipe.cuisine}</p>
-					<h5 className='fw-semibold mb-0'>{recipe.name}</h5>
+					<h5 className='fw-semibold text-truncate mb-0'>{recipe.name}</h5>
 					<Link to={`/recipe/${recipe.id}`} className="stretched-link position-absolute top-0 start-0 w-100 h-100"></Link>
 				</Card.Body>
 				<Card.Footer className='pt-0 pb-3 border-0 bg-transparent'>
