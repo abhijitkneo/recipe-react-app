@@ -10,3 +10,19 @@ a {
 .loader {
     @include flexCenter;
 }
+
+.no-recipe-icon {
+    @include squareBox(54px);
+}
+
+.banner {
+    figure {
+        max-height: 200px;
+    }
+}
+
+.form-control, .form-select {
+    &:focus {
+        box-shadow: none;
+    }
+}
