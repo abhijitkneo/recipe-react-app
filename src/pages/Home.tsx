@@ -5,6 +5,7 @@ import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 import RecipeCard from '../components/RecipeCard';
 import { MdOutlineNoFood } from "react-icons/md"
 import { RxReset } from "react-icons/rx";
+import Pagination from '../components/Pagination';
 
 const Home = () => {
 	const [loading, setLoading] = useState<boolean>(true);
@@ -16,6 +17,8 @@ const Home = () => {
 	const [selectedMealType, setSelectedMealType] = useState('');
 	const [maxCookingTime, setMaxCookingTime] = useState<number | ''>('');
 	const [sortOption, setSortOption] = useState('');
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 8;
 
 	useEffect(() => {
 		const fetchRecipes = async () => {
@@ -72,7 +75,14 @@ const Home = () => {
 		}
 
 		setFilteredData(sorted);
+		setCurrentPage(1);
 	}, [searchTerm, recipeData, selectedCuisine, selectedMealType, maxCookingTime, sortOption])
+
+	//pagination
+	const paginatedRecipes = filteredData.slice(
+		(currentPage - 1) * itemsPerPage,
+		currentPage * itemsPerPage
+	)
 
 	//reset filter
 	const handleResetFilter = () => {
@@ -80,9 +90,11 @@ const Home = () => {
 		setSelectedCuisine('');
 		setSelectedMealType('');
 		setMaxCookingTime('');
+		setCurrentPage(1);
 	}
 	const handleResetSort = () => {
 		setSortOption('');
+		setCurrentPage(1);
 	}
 	
 	const cuisineOptions = Array.from(new Set(recipeData.map((r) => r.cuisine)))
@@ -144,7 +156,7 @@ const Home = () => {
 							<RecipeCard key={recipe.id} recipe={recipe} />
 						))} */}
 
-						{
+						{/* {
 							filteredData.length > 0 ? (
 								filteredData.map(recipe => (
 									<RecipeCard key={recipe.id} recipe={recipe} />
@@ -155,7 +167,31 @@ const Home = () => {
 									No Recipes found
 								</p>
 							)
+						} */}
+
+						{
+							paginatedRecipes.length > 0 ? (
+								paginatedRecipes.map(recipe => (
+									<RecipeCard key={recipe.id} recipe={recipe} />
+								))
+							) : (
+								<p className='m-0 d-flex align-items-center flex-column gap-3 mt-4 opacity-50'>
+									<MdOutlineNoFood size={75} />
+									No Recipes found
+								</p>
+							)
 						}
+					</Row>
+					<Row>
+						<Col md={12}>
+							<div className="mt-4">
+								<Pagination 
+									currentPage={currentPage} 
+									totalPages={Math.ceil(filteredData.length / itemsPerPage)}
+									onPageChange={setCurrentPage}
+								/>
+							</div>
+						</Col>
 					</Row>
 				</Container>
 			</section>

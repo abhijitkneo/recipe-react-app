@@ -7,6 +7,11 @@ a {
     //text-decoration: none;
     @include transition(all linear 0.1s);
 }
+.btn-primary {
+    --bs-btn-disabled-bg: "#dee2e6";
+    --bs-btn-disabled-border-color: "#dee2e6";
+}
+
 .loader {
     @include flexCenter;
 }
@@ -24,5 +29,17 @@ a {
 .form-control, .form-select {
     &:focus {
         box-shadow: none;
+    }
+}
+
+.pagination {
+    .page-item {
+        button {
+            padding: 0;
+            @include squareBox(35px);
+            &:focus {
+                box-shadow: none;
+            }
+        }
     }
 }
