@@ -10,4 +10,6 @@ export interface recipeDataProps {
     prepTimeMinutes: number,
     instructions: string[];
     ingredients: string[];
+    tags: string[];
+    mealType: string[];
 }

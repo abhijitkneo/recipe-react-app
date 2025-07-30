@@ -1,0 +1,16 @@
+.recipeDetails {
+    &::before {
+        content: '';
+        background: #f4f4f4;
+        position: absolute;
+        height: 230px;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+}
+
+.ingredient-list {
+    max-height: 100px;
+    overflow: auto;
+}

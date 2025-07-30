@@ -1,4 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    font-family: $primary-font;
+}
 a {
     //text-decoration: none;
     @include transition(all linear 0.1s);
+}
+.btn-primary {
+    --bs-btn-disabled-bg: "#dee2e6";
+    --bs-btn-disabled-border-color: "#dee2e6";
+}
+
+.loader {
+    @include flexCenter;
+}
+
+.no-recipe-icon {
+    @include squareBox(54px);
+}
+
+.banner {
+    figure {
+        max-height: 200px;
+    }
+}
+
+.form-control, .form-select {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.pagination {
+    .page-item {
+        button {
+            padding: 0;
+            @include squareBox(35px);
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
 }

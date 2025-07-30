@@ -8,7 +8,9 @@ export const Banner = () => {
 			<Container>
 				<Row>
 					<Col>
-						<img src={bannerImage} alt="" className='img-fluid rounded-3 w-100' />
+						<figure className="m-0 overflow-hidden rounded-3 d-flex align-items-center justify-content-center">
+							<img src={bannerImage} alt="" className='img-fluid rounded-3 w-100' />
+						</figure>
 					</Col>
 				</Row>
 			</Container>
